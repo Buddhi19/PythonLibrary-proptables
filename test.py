@@ -1,4 +1,4 @@
-from propertytable import R134a
+from __init__ import R134a
 
 
 #################### Check for Temp Saturated Table####################
