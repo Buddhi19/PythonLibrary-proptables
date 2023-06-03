@@ -20,5 +20,5 @@ setup(
   classifiers=classifiers,
   keywords='R134propertytable', 
   packages=find_packages(),
-  install_requires=[''] 
+  install_requires=['pandas'] 
 )

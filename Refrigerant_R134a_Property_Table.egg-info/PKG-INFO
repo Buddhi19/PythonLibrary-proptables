@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: Refrigerant-R134a-Property-Table
+Version: 0.0.1
+Summary: Implementation of R134a property table in a userfriendly manner
+Home-page: 
+Author: Buddhi Wijenayake
+Author-email: wijenayakebuddhi34802@gmail.com
+License: MIT
+Keywords: R134propertytable
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENCE.txt
+
+# PropertyTables_Python
+This is a digital Property Table of R134a
+You can add some data and obtain relavant data for R134a
+
+
+Change Log
+==================
+
+0.0.1 (04/06/2023)
+---------------------
+- First Release
+
