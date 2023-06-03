@@ -36,7 +36,7 @@ class R134a:
             nearest=self.dfPressure["kPa"].sub(Pressure).abs().argsort()[:2]
             result=self.dfPressure.iloc[nearest]
             result=result.copy()
-            result["kPa"][-1]=Pressure
+            result.loc[-1,"kPa"]=Pressure
             result =result.sort_values(by='kPa')
             result=result.reset_index(drop=True)
             result.set_index('kPa', inplace=True)
@@ -62,7 +62,6 @@ class R134a:
     
     def calculate_x_pressure(self,Pressure,Enthalpy):
         result=self.FindbyPressure(Pressure)
-        result=pd.DataFrame(result)
         if result.shape[0]==3:        
             result.drop([0],inplace=True)
             result=result.reset_index(drop=True)
@@ -80,12 +79,13 @@ class R134a:
         result=result.set_axis(["Temp","v","energy","enthalpy","entropy"],axis=1)
         if Pressure in self.dfSupSat["Pressure"].values:
             indexing=self.dfSupSat[self.dfSupSat["Pressure"].values==Pressure].index.values
-            result["Temp"].values[0]=self.dfSupSat["SaturatedTemperature"].values[indexing][0]
+            result["Temp"].values[1]=self.dfSupSat["SaturatedTemperature"].values[indexing][0]
         return result
 
     
     def findsuperTemp(self,Pressure,Temperature):
         ans=self.superheatedTable(Pressure)
+        ans["Temp"][1:]=ans["Temp"][1:,].apply(pd.to_numeric)
         if Temperature in ans["Temp"].values:
             indexing=ans[ans["Temp"].values==Temperature].index.values
             row=ans.iloc[indexing]
@@ -93,22 +93,20 @@ class R134a:
 
     def values(self,Temperature=None,Pressure=None,Enthalpy=None,Superheated=None):
         if Temperature and Pressure:
-            return
+            return self.findsuperTemp(Pressure,Temperature)
+        
+        if Superheated and Pressure:
+            return superheatedtable(Pressure)
+        
         if Temperature and Enthalpy:
-            print(self.calculate_x_temp(Temperature,Enthalpy))
-            return
+            return(self.calculate_x_temp(Temperature,Enthalpy))
+            
         if Pressure and Enthalpy:
-            print(self.calculate_x_pressure(Pressure,Enthalpy))
-            return
+            return(self.calculate_x_pressure(Pressure,Enthalpy))
+            
         if Temperature:
-                print(self.FindbyTemp(Temperature))
+            return(self.FindbyTemp(Temperature))
             
         if Pressure:
-                print(self.FindbyPressure(Pressure))
+            return(self.FindbyPressure(Pressure))
 
-
-
-r=R134a()
-# r.values(Temperature=102,Enthalpy=344)
-print(r.superheatedTable(1800))
-# print(r.findsuperTemp(1800,70))

@@ -7,37 +7,37 @@ class SuperHeated:
 
     ######################################################### Super Heated 1st Tables###################################
     def superheated_Pres_60(self):
-        table=self.dfSuperHeated.iloc[1:17,0:5]
+        table=self.dfSuperHeated.iloc[2:17,0:5]
         return table
 
     def superheated_Pres_100(self):
-        table=self.dfSuperHeated.iloc[:17,6:10]
-        table.insert(0,1,self.dfSuperHeated.iloc[:17,0])
+        table=self.dfSuperHeated.iloc[2:17,6:10]
+        table.insert(0,1,self.dfSuperHeated.iloc[2:17,0])
         # print(table)
         return table
 
     def superheated_Pres_140(self):
-        table=self.dfSuperHeated.iloc[:17,11:15]
-        table.insert(0,1,self.dfSuperHeated.iloc[:17,0])
+        table=self.dfSuperHeated.iloc[2:17,11:15]
+        table.insert(0,1,self.dfSuperHeated.iloc[2:17,0])
         # print(table)
         return table
 
     ######################################################### Super Heated 3nd Tables###################################
 
     def superheated_Pres_180(self):
-        table=self.dfSuperHeated.iloc[19:34,0:5]
+        table=self.dfSuperHeated.iloc[20:34,0:5]
         # print(table)
         return table
 
     def superheated_Pres_200(self):
-        table=self.dfSuperHeated.iloc[19:34,6:10]
-        table.insert(0,1,self.dfSuperHeated.iloc[19:34,0])
+        table=self.dfSuperHeated.iloc[20:34,6:10]
+        table.insert(0,1,self.dfSuperHeated.iloc[20:34,0])
         # print(table)
         return table
 
     def superheated_Pres_240(self):
-        table=self.dfSuperHeated.iloc[19:34,11:15]
-        table.insert(0,1,self.dfSuperHeated.iloc[19:34,0])
+        table=self.dfSuperHeated.iloc[20:34,11:15]
+        table.insert(0,1,self.dfSuperHeated.iloc[20:34,0])
         # print(table)
         return table
 
@@ -115,13 +115,13 @@ class SuperHeated:
 
     ######################################################### Super Heated 6th Tables###################################
     def superheated_Pres_1800(self):
-        table=self.dfSuperHeated.iloc[112:125,0:5]
+        table=self.dfSuperHeated.iloc[111:125,0:5]
         # print(table)
         return table
 
     def superheated_Pres_2000(self):
-        table=self.dfSuperHeated.iloc[112:125,6:10]
-        table.insert(0,1,self.dfSuperHeated.iloc[112:125,0])
+        table=self.dfSuperHeated.iloc[111:125,6:10]
+        table.insert(0,1,self.dfSuperHeated.iloc[111:125,0])
         # print(table)
         return table
 
