@@ -1,5 +1,5 @@
 import pandas as pd
-
+from bisect import bisect_left
 class SuperHeated:
     def __init__(self):   
         self.dfSuperHeated=pd.read_csv("./R134a_Super.csv",header=None)
@@ -140,7 +140,7 @@ def superheatedtable(pressure):
     if pressure in pre:
         val=pre.index(pressure)
         return mode[val]
-    else:
-        return sup.superheated_Pres_400() ############ Should implement interpoleration
+    bk=bisect_left(pre,pressure)
+    return mode[bk]
     
 

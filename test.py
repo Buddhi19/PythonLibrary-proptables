@@ -37,18 +37,32 @@ check_5=False
 pre=[60,100,140,180,200,240,280,320,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000]
 
 if check_5:
-    print(r.values(Pressure=100,Superheated=True))
+    print(r.values(Pressure=60,Superheated=True))
 
 check_5_sub=False
 
 if check_5_sub:
     for num in pre:
-        print(r.values(Pressure=pre,Superheated=True))
+        print(r.values(Pressure=num,Superheated=True))
 
 
 ########################## Check for superheated pressure and Temperature#######
 
-check_6=True
+check_6=False
 
 if check_6:
-    print(r.values(Pressure=100,Temperature=90))
+    print(r.values(Pressure=100,Temperature=95))
+
+########################### Check for superheated pressure and enthalpy ##########
+
+check_7=False
+
+if check_7:
+    print(r.values(Pressure=240,Enthalpy=331,Superheated=True))
+
+########################### Check for superheated pressure and entropy ##########
+
+check_8=True
+
+if check_8:
+    print(r.values(Pressure=400,Entropy=1.2,Superheated=True))

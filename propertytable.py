@@ -1,11 +1,10 @@
 import pandas as pd
-from superheated import superheatedtable
+from calSuperHeatData import HeatedCal
 
 class R134a:
     def __init__(self):
         self.dfPressure=pd.read_csv("./R134a_PresSat.csv")
         self.dfTemperature=pd.read_csv("./R134a_TempSat.csv")
-        self.dfSupSat=pd.read_csv("./R134a_SupPreSat.csv")
 
 
     def FindbyTemp(self,Temperature):
@@ -73,30 +72,18 @@ class R134a:
         result["x"]=x
         return result
 
-    def superheatedTable(self,Pressure):
-        result=superheatedtable(Pressure)
-        result=result.reset_index(drop=True)
-        result=result.set_axis(["Temp","v","energy","enthalpy","entropy"],axis=1)
-        if Pressure in self.dfSupSat["Pressure"].values:
-            indexing=self.dfSupSat[self.dfSupSat["Pressure"].values==Pressure].index.values
-            result["Temp"].values[1]=self.dfSupSat["SaturatedTemperature"].values[indexing][0]
-        return result
-
-    
-    def findsuperTemp(self,Pressure,Temperature):
-        ans=self.superheatedTable(Pressure)
-        ans["Temp"][1:]=ans["Temp"][1:,].apply(pd.to_numeric)
-        if Temperature in ans["Temp"].values:
-            indexing=ans[ans["Temp"].values==Temperature].index.values
-            row=ans.iloc[indexing]
-            return row
-
-    def values(self,Temperature=None,Pressure=None,Enthalpy=None,Superheated=None):
+    def values(self,Temperature=None,Pressure=None,Enthalpy=None,Entropy=None,Superheated=None):
         if Temperature and Pressure:
-            return self.findsuperTemp(Pressure,Temperature)
+            return HeatedCal.findsuperTemp(Pressure,Temperature)
+        
+        if Superheated and Pressure and Enthalpy:
+            return HeatedCal.findsuperEnthalpy(Pressure,Enthalpy)
+        
+        if Superheated and Pressure and Entropy:
+            return HeatedCal.findsuperEntropy(Pressure,Entropy)
         
         if Superheated and Pressure:
-            return superheatedtable(Pressure)
+            return HeatedCal.superheatedTable(Pressure)
         
         if Temperature and Enthalpy:
             return(self.calculate_x_temp(Temperature,Enthalpy))
