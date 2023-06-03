@@ -89,5 +89,31 @@ class HeatedCalculater:
             result.drop([1],inplace=True)
             result=result.reset_index(drop=True)
             return result
+        
+    def findsuperspecificvolume(self,Pressure,specificvolume):
+        ans=self.superheatedTable(Pressure)
+        ans=ans.loc[1:]
+        ans=ans.reset_index(drop=True)
+        ans=ans.apply(pd.to_numeric)
+        if specificvolume in ans["v"].values:
+            indexing=ans[ans["v"].values==specificvolume].index.values
+            row=ans.iloc[indexing]
+            return row
+        else:
+            nearest=ans["v"].sub(specificvolume).abs().argsort()[:2]
+            result=ans.iloc[nearest]
+            result=result.copy()
+            result.loc[-1,"v"]=specificvolume
+            result =result.sort_values(by='v')
+            result=result.reset_index(drop=True)
+            result.set_index('v', inplace=True)
+            result.interpolate(method='index', inplace=True)
+            result.reset_index(inplace=True)
+            result.drop([0],inplace=True)
+            result=result.reset_index(drop=True)
+            result.drop([1],inplace=True)
+            result=result.reset_index(drop=True)
+            return result
+
 
 HeatedCal=HeatedCalculater()

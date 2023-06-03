@@ -62,7 +62,14 @@ if check_7:
 
 ########################### Check for superheated pressure and entropy ##########
 
-check_8=True
+check_8=False
 
 if check_8:
     print(r.values(Pressure=400,Entropy=1.2,Superheated=True))
+
+########################### Check for superheated pressure and specificvolume ##########
+
+check_9=True
+
+if check_9:
+    print(r.values(Superheated=True,Pressure=400,specificvolume=0.06))

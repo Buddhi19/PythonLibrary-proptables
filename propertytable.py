@@ -72,7 +72,7 @@ class R134a:
         result["x"]=x
         return result
 
-    def values(self,Temperature=None,Pressure=None,Enthalpy=None,Entropy=None,Superheated=None):
+    def values(self,Temperature=None,Pressure=None,Enthalpy=None,Entropy=None,specificvolume=None,Superheated=None):
         if Temperature and Pressure:
             return HeatedCal.findsuperTemp(Pressure,Temperature)
         
@@ -81,6 +81,9 @@ class R134a:
         
         if Superheated and Pressure and Entropy:
             return HeatedCal.findsuperEntropy(Pressure,Entropy)
+        
+        if Superheated and Pressure and specificvolume:
+            return HeatedCal.findsuperspecificvolume(Pressure,specificvolume)
         
         if Superheated and Pressure:
             return HeatedCal.superheatedTable(Pressure)
