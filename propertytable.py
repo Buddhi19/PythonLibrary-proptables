@@ -4,6 +4,7 @@ class R134a:
     def __init__(self):
         self.dfPressure=pd.read_csv("./R134a_PresSat.csv")
         self.dfTemperature=pd.read_csv("./R134a_TempSat.csv")
+        self.dfSuperHeated=pd.read_csv("./R134a_Super.csv",header=None)
 
 
 
@@ -15,6 +16,7 @@ class R134a:
         else:
             nearest=self.dfTemperature["degC"].sub(Temperature).abs().argsort()[:2]
             result=self.dfTemperature.iloc[nearest]
+            result=result.copy()
             result.loc[-1,"degC"]=Temperature
             result =result.sort_values(by='degC')
             result=result.reset_index(drop=True)
@@ -33,7 +35,8 @@ class R134a:
         else:
             nearest=self.dfPressure["kPa"].sub(Pressure).abs().argsort()[:2]
             result=self.dfPressure.iloc[nearest]
-            result.loc[-1,"kPa"]=Pressure
+            result=result.copy()
+            result["kPa"][-1]=Pressure
             result =result.sort_values(by='kPa')
             result=result.reset_index(drop=True)
             result.set_index('kPa', inplace=True)
@@ -71,6 +74,59 @@ class R134a:
         result["x"]=x
         return result
 
+######################################################### Super Heated 1st Tables###################################
+    def superheated_Pres_60(self):
+        table=self.dfSuperHeated.iloc[:16,0:5]
+        return table
+
+    def superheated_Pres_100(self):
+        table=self.dfSuperHeated.iloc[:16,6:10]
+        table.insert(0,1,self.dfSuperHeated.iloc[:16,0])
+        # print(table)
+        return table
+    
+    def superheated_Pres_140(self):
+        table=self.dfSuperHeated.iloc[:16,11:15]
+        table.insert(0,1,self.dfSuperHeated.iloc[:16,0])
+        print(table)
+        return table
+    
+######################################################### Super Heated 3nd Tables###################################
+
+    def superheated_Pres_180(self):
+        table=self.dfSuperHeated.iloc[19:33,0:5]
+        # print(table)
+        return table
+
+    def superheated_Pres_200(self):
+        table=self.dfSuperHeated.iloc[19:33,6:10]
+        table.insert(0,1,self.dfSuperHeated.iloc[19:33,0])
+        # print(table)
+        return table
+    
+    def superheated_Pres_240(self):
+        table=self.dfSuperHeated.iloc[19:33,11:15]
+        table.insert(0,1,self.dfSuperHeated.iloc[19:33,0])
+        # print(table)
+        return table
+
+######################################################### Super Heated 3rd Tables###################################
+    def superheated_Pres_280(self):
+        table=self.dfSuperHeated.iloc[37:51,0:5]
+        # print(table)
+        return table
+
+    def superheated_Pres_320(self):
+        table=self.dfSuperHeated.iloc[37:51,6:10]
+        table.insert(0,1,self.dfSuperHeated.iloc[37:51,0])
+        # print(table)
+        return table
+    
+    def superheated_Pres_400(self):
+        table=self.dfSuperHeated.iloc[37:51,11:15]
+        table.insert(0,1,self.dfSuperHeated.iloc[37:51,0])
+        # print(table)
+        return table
 
     def values(self,Temperature=None,Pressure=None,Enthalpy=None,Superheated=None):
         if Temperature and Pressure:
@@ -89,9 +145,7 @@ class R134a:
 
 
 
-
-
 r=R134a()
-# r.values(Temperature=55)
-# r.values(Temperature=55,Pressure=344)
-r.values(Temperature=32,Enthalpy=344)
+# r.values(Temperature=102,Enthalpy=344)
+# r.superheated_Pres_60()
+r.superheated_Pres_280()
