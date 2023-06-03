@@ -3,7 +3,7 @@ from propertytable import R134a
 
 #################### Check for Temp Saturated Table####################
 
-check_1=False
+check_1=True
 
 if check_1:
     print(R134a(Temperature=50))
@@ -24,7 +24,7 @@ if check_3:
 
 ####################### check for Saturated liquid Pressure ##############
 
-check_4=False
+check_4=True
 
 if check_4:
     print(R134a(Pressure=1334,Enthalpy=223))
