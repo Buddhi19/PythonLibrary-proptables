@@ -4,7 +4,9 @@ from calSuperHeatData import HeatedCal
 class R134a:
     def __init__(self):
         self.dfPressure=pd.read_csv("./R134a_PresSat.csv")
+        self.dfPressure=self.dfPressure.iloc[: , :-1]
         self.dfTemperature=pd.read_csv("./R134a_TempSat.csv")
+        self.dfTemperature=self.dfTemperature.iloc[: , :-1]
 
 
     def FindbyTemp(self,Temperature):
