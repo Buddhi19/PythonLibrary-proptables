@@ -7,18 +7,18 @@ class SuperHeated:
 
     ######################################################### Super Heated 1st Tables###################################
     def superheated_Pres_60(self):
-        table=self.dfSuperHeated.iloc[:16,0:5]
+        table=self.dfSuperHeated.iloc[1:17,0:5]
         return table
 
     def superheated_Pres_100(self):
-        table=self.dfSuperHeated.iloc[:16,6:10]
-        table.insert(0,1,self.dfSuperHeated.iloc[:16,0])
+        table=self.dfSuperHeated.iloc[:17,6:10]
+        table.insert(0,1,self.dfSuperHeated.iloc[:17,0])
         # print(table)
         return table
 
     def superheated_Pres_140(self):
-        table=self.dfSuperHeated.iloc[:16,11:15]
-        table.insert(0,1,self.dfSuperHeated.iloc[:16,0])
+        table=self.dfSuperHeated.iloc[:17,11:15]
+        table.insert(0,1,self.dfSuperHeated.iloc[:17,0])
         # print(table)
         return table
 
@@ -140,3 +140,7 @@ def superheatedtable(pressure):
     if pressure in pre:
         val=pre.index(pressure)
         return mode[val]
+    else:
+        return sup.superheated_Pres_400() ############ Should implement interpoleration
+    
+

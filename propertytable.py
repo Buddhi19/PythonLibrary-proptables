@@ -5,7 +5,7 @@ class R134a:
     def __init__(self):
         self.dfPressure=pd.read_csv("./R134a_PresSat.csv")
         self.dfTemperature=pd.read_csv("./R134a_TempSat.csv")
-
+        self.dfSupSat=pd.read_csv("./R134a_SupPreSat.csv")
 
 
     def FindbyTemp(self,Temperature):
@@ -74,8 +74,22 @@ class R134a:
         result["x"]=x
         return result
 
-    def superheatedTable(self,Presssure):
-        return superheatedtable(Presssure)
+    def superheatedTable(self,Pressure):
+        result=superheatedtable(Pressure)
+        result=result.reset_index(drop=True)
+        result=result.set_axis(["Temp","v","energy","enthalpy","entropy"],axis=1)
+        if Pressure in self.dfSupSat["Pressure"].values:
+            indexing=self.dfSupSat[self.dfSupSat["Pressure"].values==Pressure].index.values
+            result["Temp"].values[0]=self.dfSupSat["SaturatedTemperature"].values[indexing][0]
+        return result
+
+    
+    def findsuperTemp(self,Pressure,Temperature):
+        ans=self.superheatedTable(Pressure)
+        if Temperature in ans["Temp"].values:
+            indexing=ans[ans["Temp"].values==Temperature].index.values
+            row=ans.iloc[indexing]
+            return row
 
     def values(self,Temperature=None,Pressure=None,Enthalpy=None,Superheated=None):
         if Temperature and Pressure:
@@ -97,3 +111,4 @@ class R134a:
 r=R134a()
 # r.values(Temperature=102,Enthalpy=344)
 print(r.superheatedTable(1800))
+# print(r.findsuperTemp(1800,70))
