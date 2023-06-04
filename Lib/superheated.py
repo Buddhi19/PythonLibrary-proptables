@@ -2,7 +2,7 @@ import pandas as pd
 from bisect import bisect_left
 class SuperHeated:
     def __init__(self):   
-        self.dfSuperHeated=pd.read_csv("./R134a_Super.csv",header=None)
+        self.dfSuperHeated=pd.read_csv("D:\\Property Table\\Lib\\R134a_Super.csv",header=None)
 
 
     ######################################################### Super Heated 1st Tables###################################

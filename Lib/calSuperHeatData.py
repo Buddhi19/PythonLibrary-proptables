@@ -3,7 +3,7 @@ from superheated import superheatedtable
 
 class HeatedCalculater:
     def __init__(self):
-        self.dfSupSat=pd.read_csv("./R134a_SupPreSat.csv")
+        self.dfSupSat=pd.read_csv("D:\\Property Table\\Lib\\R134a_SupPreSat.csv")
 
     def superheatedTable(self,Pressure):
         result=superheatedtable(Pressure)

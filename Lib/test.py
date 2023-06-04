@@ -1,4 +1,4 @@
-from __init__ import R134a
+from main import R134a
 
 
 #################### Check for Temp Saturated Table####################
