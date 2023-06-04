@@ -9,7 +9,7 @@ classifiers = [
 ]
  
 setup(
-  name='PTable',
+  name='PropTable',
   version='0.1',
   description='Implementation of R134a property table in a userfriendly manner',
   long_description=open('README.txt').read() + '\n\n' + open('CHANGELOG.txt').read(),
