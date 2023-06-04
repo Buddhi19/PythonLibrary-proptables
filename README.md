@@ -6,4 +6,4 @@ You can add some data and obtain relavant data for R134a
 
 # To Install
 
-    pip install R134aPT
+    pip install PropTable
