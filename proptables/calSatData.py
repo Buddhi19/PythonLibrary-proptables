@@ -1,8 +1,8 @@
 import pandas as pd
 from pathlib import Path
 
-data_path3 = Path(Path.cwd(), 'proptable', 'R134a_PresSat.csv')
-data_path4 = Path(Path.cwd(), 'proptable', 'R134a_TempSat.csv')
+data_path3 = Path(Path.cwd(), 'proptables', 'R134a_PresSat.csv')
+data_path4 = Path(Path.cwd(), 'proptables', 'R134a_TempSat.csv')
 
 class SaturatedData:
     def __init__(self):

@@ -2,7 +2,7 @@ import pandas as pd
 from bisect import bisect_left
 from pathlib import Path
 
-data_path2 = Path(Path.cwd(), 'proptable', 'R134a_Super.csv')
+data_path2 = Path(Path.cwd(), 'proptables', 'R134a_Super.csv')
 
 class SuperHeated:
     def __init__(self):   

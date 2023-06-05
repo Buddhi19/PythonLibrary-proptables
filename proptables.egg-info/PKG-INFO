@@ -1,5 +1,5 @@
 Metadata-Version: 2.1
-Name: proptable
+Name: proptables
 Version: 0.0.1
 Summary: For generating property table values for given input
 Home-page: https://github.com/Buddhi19/PropertyTables_Python
@@ -20,7 +20,7 @@ You can add some data and obtain relavant data for R134a
 
 # To Install
 
-    pip install PropTable
+    pip install PropTables
 
 ## Sample Calculation (Before Packaging)
 

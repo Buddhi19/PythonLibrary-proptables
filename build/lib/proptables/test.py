@@ -1,4 +1,4 @@
-from proptable.main import R134a
+from proptables.main import R134a
 
 
 #################### Check for Temp Saturated Table####################

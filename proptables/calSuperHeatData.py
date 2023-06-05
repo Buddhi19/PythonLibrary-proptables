@@ -1,8 +1,8 @@
 import pandas as pd
-from proptable.superheated import superheatedtable
+from proptables.superheated import superheatedtable
 from pathlib import Path
 
-data_path1 = Path(Path.cwd(), 'proptable', 'R134a_SupPreSat.csv')
+data_path1 = Path(Path.cwd(), 'proptables', 'R134a_SupPreSat.csv')
 class HeatedCalculater:
     def __init__(self):
         self.dfSupSat=pd.read_csv(data_path1)

@@ -6,7 +6,7 @@ You can add some data and obtain relavant data for R134a
 
 # To Install
 
-    pip install PropTable
+    pip install PropTables
 
 ## Sample Calculation (Before Packaging)
 
