@@ -37,3 +37,15 @@ R134a(Temperature=VALUE_IN_C,Enthalpy=VALUE_IN_KJ/Kg)
 R134a(Pressure=VALUE_IN_KPA,Superheated=True)
 ```
 ![image](https://github.com/Buddhi19/PropertyTables_Python/assets/119914594/f4661274-5347-4b81-a45d-090725f95cfb)
+
+## To find data in the superheated region when any parameter is known with pressure
+
+```python
+R134a(Pressure=VALUE_IN_KPA,Enthalpy=VALUE_IN_KJ/Kg,Superheated=True)
+R134a(Pressure=VALUE_IN_KPA,Temperature=VALUE_IN_C,Superheated=True)
+R134a(Pressure=VALUE_IN_KPA,Entropy=VALUE_IN_KJ/KgK,Superheated=True)
+R134a(Pressure=VALUE_IN_KPA,Energy=VALUE_IN_KJ/Kg,Superheated=True)
+```
+
+![image](https://github.com/Buddhi19/PropertyTables_Python/assets/119914594/1bd85362-5324-492f-8a74-f58bcb8fcb8d)
+
