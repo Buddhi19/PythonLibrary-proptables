@@ -6,12 +6,19 @@ You can add some data and obtain relavant data for R134a
 
 # To Install
 
-    pip install PropTables
+    pip install proptables
 
-## Sample Calculation (Before Packaging)
+## How to use
 
-![Screenshot 2023-06-05 001930](https://github.com/Buddhi19/PropertyTables_Python/assets/119914594/2ae5d53a-13ea-41e0-a487-507a3bc1bace)
+    from proptables import R134a
+   
+## To find data in saturated liquid vapour region
 
-## Required Data Can be Obtained
+Use either one of followings
+```python
+R134a(Pressure=VALUE_IN_KPA)
+R134a(Temperature=VALUE_IN_C)
+```    
+![image](https://github.com/Buddhi19/PropertyTables_Python/assets/119914594/93dc1dd8-5267-4a0b-9c6f-f22196a409c3)
 
-![Screenshot 2023-06-01 180639](https://github.com/Buddhi19/PropertyTables_Python/assets/119914594/435f290a-3e75-4ebf-b81a-007314f0691d)
+![image](https://github.com/Buddhi19/PropertyTables_Python/assets/119914594/e3fa0006-7f3f-4e03-a568-433b606ec995)
