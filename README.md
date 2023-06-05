@@ -5,13 +5,14 @@ This is a digital Property Table of R134a
 You can add some data and obtain relavant data for R134a
 
 # To Install
-
-    pip install proptables
-
+```bash
+pip install proptables
+```
 ## How to use
+```python
+from proptables import R134a
+```
 
-    from proptables import R134a
-   
 ## To find data in saturated liquid vapour region
 
 Use either one of followings
