@@ -1,14 +1,12 @@
 import pandas as pd
 from pathlib import Path
-
-data_path3 = Path(Path.cwd(), 'proptables', 'R134a_PresSat.csv')
-data_path4 = Path(Path.cwd(), 'proptables', 'R134a_TempSat.csv')
+from proptables.import_data import data_path_TempSat,data_path_PresSat
 
 class SaturatedData:
     def __init__(self):
-        self.dfPressure=pd.read_csv(data_path3)
+        self.dfPressure=pd.read_csv(data_path_PresSat)
         self.dfPressure=self.dfPressure.iloc[: , :-1]
-        self.dfTemperature=pd.read_csv(data_path4)
+        self.dfTemperature=pd.read_csv(data_path_TempSat)
         self.dfTemperature=self.dfTemperature.iloc[: , :-1]
 
 

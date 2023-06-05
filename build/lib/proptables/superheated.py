@@ -1,12 +1,11 @@
 import pandas as pd
 from bisect import bisect_left
 from pathlib import Path
-
-data_path2 = Path(Path.cwd(), 'proptables', 'R134a_Super.csv')
+from proptables.import_data import data_path_Super
 
 class SuperHeated:
     def __init__(self):   
-        self.dfSuperHeated=pd.read_csv(data_path2,header=None)
+        self.dfSuperHeated=pd.read_csv(data_path_Super,header=None)
 
 
     ######################################################### Super Heated 1st Tables###################################
