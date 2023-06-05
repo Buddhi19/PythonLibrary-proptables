@@ -2,9 +2,9 @@ import pandas as pd
 
 class SaturatedData:
     def __init__(self):
-        self.dfPressure=pd.read_csv("D:\\Property Table\\Lib\\R134a_PresSat.csv")
+        self.dfPressure=pd.read_csv("D:\\Property Table\\proptable\\R134a_PresSat.csv")
         self.dfPressure=self.dfPressure.iloc[: , :-1]
-        self.dfTemperature=pd.read_csv("D:\\Property Table\\Lib\\R134a_TempSat.csv")
+        self.dfTemperature=pd.read_csv("D:\\Property Table\\proptable\\R134a_TempSat.csv")
         self.dfTemperature=self.dfTemperature.iloc[: , :-1]
 
 
@@ -23,6 +23,10 @@ class SaturatedData:
             result.set_index('degC', inplace=True)
             result.interpolate(method='index', inplace=True)
             result.reset_index(inplace=True)
+            result.drop([0],inplace=True)
+            result=result.reset_index(drop=True)
+            result.drop([1],inplace=True)
+            result=result.reset_index(drop=True)
             return result
             
 
@@ -42,6 +46,10 @@ class SaturatedData:
             result.set_index('kPa', inplace=True)
             result.interpolate(method='index', inplace=True)
             result.reset_index(inplace=True)
+            result.drop([0],inplace=True)
+            result=result.reset_index(drop=True)
+            result.drop([1],inplace=True)
+            result=result.reset_index(drop=True)
             return result
 
 

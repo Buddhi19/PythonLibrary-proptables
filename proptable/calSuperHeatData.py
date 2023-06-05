@@ -1,9 +1,9 @@
 import pandas as pd
-from superheated import superheatedtable
+from proptable.superheated import superheatedtable
 
 class HeatedCalculater:
     def __init__(self):
-        self.dfSupSat=pd.read_csv("D:\\Property Table\\Lib\\R134a_SupPreSat.csv")
+        self.dfSupSat=pd.read_csv("D:\\Property Table\\proptable\\R134a_SupPreSat.csv")
 
     def superheatedTable(self,Pressure):
         result=superheatedtable(Pressure)

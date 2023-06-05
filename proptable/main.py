@@ -1,6 +1,7 @@
 import pandas as pd
-from calSuperHeatData import HeatedCal
-from calSatData import SatData
+from proptable.calSuperHeatData import HeatedCal
+from proptable.calSatData import SatData
+
 
 def R134a(Temperature=None,Pressure=None,Enthalpy=None,Entropy=None,specificvolume=None,Superheated=None):
     
