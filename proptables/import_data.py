@@ -1,7 +1,7 @@
 from importlib import resources
 
 def get_flatland(loc):
-    """Get path to example "Flatland" [1]_ text file.
+    """Get path to example
 
     Returns
     -------
