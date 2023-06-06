@@ -71,3 +71,17 @@ check_9=True
 
 if check_9:
     print(R134a(Superheated=True,Pressure=400,specificvolume=0.06))
+
+################################### check for entropy and temp ##################################
+
+check_10=True
+
+if check_10:
+    print(R134a(Temperature=40,Entropy=0.8))
+
+################################### check for entropy and pres ##################################
+
+check_11=True
+
+if check_11:
+    print(R134a(Pressure=400,Entropy=0.8))

@@ -72,6 +72,7 @@ class SaturatedData:
     
     def calculate_x_pressure(self,Pressure,Enthalpy):
         result=self.FindbyPressure(Pressure)
+        result=pd.DataFrame(result)
         if result.shape[0]==3:        
             result.drop([0],inplace=True)
             result=result.reset_index(drop=True)
@@ -82,6 +83,35 @@ class SaturatedData:
         x=(Enthalpy-Hf)/Hg
         result["x"]=x
         return result
+
+    ############################################################# version 0.0.3 ##################################
+
+    def calculate_x_temp_entropy(self,Temperature,Entropy):
+        result=self.FindbyTemp(Temperature)
+        result=pd.DataFrame(result)
+        if result.shape[0]==3:        
+            result.drop([0],inplace=True)
+            result=result.reset_index(drop=True)
+            result.drop([1],inplace=True)
+            result=result.reset_index(drop=True)
+        Sf=result.iat[0,10]
+        Sg=result.iat[0,11]
+        x=(Entropy-Sf)/Sg
+        result["x"]=x
+        return result
     
+    def calculate_x_pressure_entropy(self,Pressure,Entropy):
+        result=self.FindbyPressure(Pressure)
+        result=pd.DataFrame(result)
+        if result.shape[0]==3:        
+            result.drop([0],inplace=True)
+            result=result.reset_index(drop=True)
+            result.drop([1],inplace=True)
+            result=result.reset_index(drop=True)
+        Sf=result.iat[0,10]
+        Sg=result.iat[0,11]
+        x=(Entropy-Sf)/Sg
+        result["x"]=x
+        return result
 
 SatData=SaturatedData()

@@ -25,6 +25,12 @@ def R134a(Temperature=None,Pressure=None,Enthalpy=None,Entropy=None,specificvolu
         
     if Pressure and Enthalpy:
         return(SatData.calculate_x_pressure(Pressure,Enthalpy))
+    
+    if Temperature and Entropy:
+        return(SatData.calculate_x_temp_entropy(Temperature,Entropy))
+        
+    if Pressure and Entropy:
+        return(SatData.calculate_x_pressure_entropy(Pressure,Entropy))
         
     if Temperature:
         return(SatData.FindbyTemp(Temperature))
