@@ -17,27 +17,27 @@ if check_2:
 
 #######################3 Check for Saturated liquid Temp ##################
 
-check_3=True
+check_3=False
 if check_3:
     print(R134a(Temperature=98,Enthalpy=300))
 
 ####################### check for Saturated liquid Pressure ##############
 
-check_4=True
+check_4=False
 
 if check_4:
     print(R134a(Pressure=1334,Enthalpy=223))
 
 ##################### check for Superheated Vapour #####################
 
-check_5=True
+check_5=False
 
 pre=[60,100,140,180,200,240,280,320,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000]
 
 if check_5:
     print(R134a(Pressure=60,Superheated=True))
 
-check_5_sub=True
+check_5_sub=False
 
 if check_5_sub:
     for num in pre:
@@ -46,28 +46,28 @@ if check_5_sub:
 
 ########################## Check for superheated pressure and Temperature#######
 
-check_6=True
+check_6=False
 
 if check_6:
     print(R134a(Pressure=100,Temperature=95))
 
 ########################### Check for superheated pressure and enthalpy ##########
 
-check_7=True
+check_7=False
 
 if check_7:
     print(R134a(Pressure=240,Enthalpy=331,Superheated=True))
 
 ########################### Check for superheated pressure and entropy ##########
 
-check_8=True
+check_8=False
 
 if check_8:
     print(R134a(Pressure=400,Entropy=1.2,Superheated=True))
 
 ########################### Check for superheated pressure and specificvolume ##########
 
-check_9=True
+check_9=False
 
 if check_9:
     print(R134a(Superheated=True,Pressure=400,specificvolume=0.06))
@@ -77,11 +77,11 @@ if check_9:
 check_10=True
 
 if check_10:
-    print(R134a(Temperature=40,Entropy=0.8))
+    print(R134a(Temperature=49,Entropy=0.8))
 
 ################################### check for entropy and pres ##################################
 
 check_11=True
 
 if check_11:
-    print(R134a(Pressure=400,Entropy=0.8))
+    print(R134a(Pressure=230,Entropy=0.8))

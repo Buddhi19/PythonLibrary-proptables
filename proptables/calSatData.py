@@ -94,8 +94,8 @@ class SaturatedData:
             result=result.reset_index(drop=True)
             result.drop([1],inplace=True)
             result=result.reset_index(drop=True)
-        Sf=result.iat[0,10]
-        Sg=result.iat[0,11]
+        Sf=result.iat[0,9]
+        Sg=result.iat[0,10]
         x=(Entropy-Sf)/Sg
         result["x"]=x
         return result
@@ -108,8 +108,8 @@ class SaturatedData:
             result=result.reset_index(drop=True)
             result.drop([1],inplace=True)
             result=result.reset_index(drop=True)
-        Sf=result.iat[0,10]
-        Sg=result.iat[0,11]
+        Sf=result.iat[0,9]
+        Sg=result.iat[0,10]
         x=(Entropy-Sf)/Sg
         result["x"]=x
         return result
