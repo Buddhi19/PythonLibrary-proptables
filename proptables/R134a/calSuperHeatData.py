@@ -1,6 +1,6 @@
 import pandas as pd
-from proptables.superheated import superheatedtable
-from proptables.import_data import data_path_SupPreSat
+from proptables.R134a.superheated import superheatedtable
+from proptables.R134a.import_data import data_path_SupPreSat
 
 class HeatedCalculater:
     def __init__(self):

@@ -1,6 +1,6 @@
 import pandas as pd
 from pathlib import Path
-from proptables.import_data import data_path_TempSat,data_path_PresSat
+from proptables.R134a.import_data import data_path_TempSat,data_path_PresSat
 
 class SaturatedData:
     def __init__(self):

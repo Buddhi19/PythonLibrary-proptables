@@ -1,7 +1,7 @@
 import pandas as pd
 from bisect import bisect_left
 from pathlib import Path
-from proptables.import_data import data_path_Super
+from proptables.R134a.import_data import data_path_Super
 
 class SuperHeated:
     def __init__(self):   

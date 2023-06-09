@@ -1,1 +1,2 @@
-include proptables/*.csv
+include proptables/R134a/*.csv
+include proptables/water/*.csv
