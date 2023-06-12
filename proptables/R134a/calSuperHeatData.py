@@ -6,6 +6,10 @@ class HeatedCalculater:
     def __init__(self):
         self.dfSupSat=pd.read_csv(data_path_SupPreSat)
 
+
+    def superheatedTable(self,Pressure):
+        return superheatedtable(Pressure)
+
     def findsuperTemp(self,Pressure,Temperature):
         ans=superheatedtable(Pressure)
         if Temperature in ans["Temp"].values:

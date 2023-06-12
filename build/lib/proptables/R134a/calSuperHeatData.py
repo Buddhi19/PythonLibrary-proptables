@@ -6,21 +6,12 @@ class HeatedCalculater:
     def __init__(self):
         self.dfSupSat=pd.read_csv(data_path_SupPreSat)
 
-    def superheatedTable(self,Pressure):
-        result=superheatedtable(Pressure)
-        result=result.reset_index(drop=True)
-        result=result.set_axis(["Temp","v","energy","enthalpy","entropy"],axis=1)
-        if Pressure in self.dfSupSat["Pressure"].values:
-            indexing=self.dfSupSat[self.dfSupSat["Pressure"].values==Pressure].index.values
-            result["Temp"].values[1]=self.dfSupSat["SaturatedTemperature"].values[indexing][0]
-        return result
 
+    def superheatedTable(self,Pressure):
+        return superheatedtable(Pressure)
 
     def findsuperTemp(self,Pressure,Temperature):
-        ans=self.superheatedTable(Pressure)
-        ans=ans.loc[1:]
-        ans=ans.reset_index(drop=True)
-        ans=ans.apply(pd.to_numeric)
+        ans=superheatedtable(Pressure)
         if Temperature in ans["Temp"].values:
             indexing=ans[ans["Temp"].values==Temperature].index.values
             row=ans.iloc[indexing]
@@ -42,10 +33,7 @@ class HeatedCalculater:
             return result
         
     def findsuperEnthalpy(self,Pressure,Enthalpy):
-        ans=self.superheatedTable(Pressure)
-        ans=ans.loc[1:]
-        ans=ans.reset_index(drop=True)
-        ans=ans.apply(pd.to_numeric)
+        ans=superheatedtable(Pressure)
         if Enthalpy in ans["enthalpy"].values:
             indexing=ans[ans["enthalpy"].values==Enthalpy].index.values
             row=ans.iloc[indexing]
@@ -67,10 +55,7 @@ class HeatedCalculater:
             return result
     
     def findsuperEntropy(self,Pressure,Entropy):
-        ans=self.superheatedTable(Pressure)
-        ans=ans.loc[1:]
-        ans=ans.reset_index(drop=True)
-        ans=ans.apply(pd.to_numeric)
+        ans=superheatedtable(Pressure)
         if Entropy in ans["entropy"].values:
             indexing=ans[ans["entropy"].values==Entropy].index.values
             row=ans.iloc[indexing]
@@ -92,10 +77,7 @@ class HeatedCalculater:
             return result
         
     def findsuperspecificvolume(self,Pressure,specificvolume):
-        ans=self.superheatedTable(Pressure)
-        ans=ans.loc[1:]
-        ans=ans.reset_index(drop=True)
-        ans=ans.apply(pd.to_numeric)
+        ans=superheatedtable(Pressure)
         if specificvolume in ans["v"].values:
             indexing=ans[ans["v"].values==specificvolume].index.values
             row=ans.iloc[indexing]

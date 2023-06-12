@@ -145,7 +145,7 @@ class SuperHeated:
         table1=self.superheatedTable_interpolate(table1,Pressure1)
         table2=self.superheatedTable_interpolate(table2,Pressure2)
 
-        return table1+(table2-table1).multiply((Pressure-Pressure2)/(Pressure2-Pressure1))
+        return table1+(table2-table1).multiply((Pressure-Pressure1)/(Pressure2-Pressure1))
 
 
 ##########################################################################################################################################
@@ -162,13 +162,18 @@ def superheatedtable(pressure):
     ]
     if pressure in pre:
         val=pre.index(pressure)
-        return sup.superheatedTable_interpolate(mode[val],pressure)
+        result=sup.superheatedTable_interpolate(mode[val],pressure)
+        result=result.set_axis(["Temp","v","energy","enthalpy","entropy"],axis=1)
+        return result
     bk=bisect_left(pre,pressure)
-    return sup.superheated_Pres_unknown(mode[bk],pre[bk],mode[bk-1],pre[bk-1],pressure)
+    result=sup.superheated_Pres_unknown(mode[bk-1],pre[bk-1],mode[bk],pre[bk],pressure)
+    result=result.set_axis(["Temp","v","energy","enthalpy","entropy"],axis=1)
+    return result
 
-print(superheatedtable(60))
-print(superheatedtable(100))
 
-print(superheatedtable(70))
+# print(superheatedtable(60))
+# print(superheatedtable(100))
+
+# print(superheatedtable(61))
     
 
