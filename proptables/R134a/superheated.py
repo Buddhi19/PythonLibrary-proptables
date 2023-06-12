@@ -2,10 +2,13 @@ import pandas as pd
 from bisect import bisect_left
 from pathlib import Path
 from proptables.R134a.import_data import data_path_Super
+from proptables.R134a.import_data import data_path_SupPreSat
 
 class SuperHeated:
     def __init__(self):   
         self.dfSuperHeated=pd.read_csv(data_path_Super,header=None)
+        self.pre=[60,100,140,180,200,240,280,320,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000]
+        self.dfSupSat=pd.read_csv(data_path_SupPreSat)
 
 
     ######################################################### Super Heated 1st Tables###################################
@@ -127,6 +130,23 @@ class SuperHeated:
         table.insert(0,1,self.dfSuperHeated.iloc[111:125,0])
         # print(table)
         return table
+##########################################################################################################################################
+    def superheatedTable_interpolate(self,result,Pressure):
+        result=result.reset_index(drop=True)
+        result=result.set_axis(["Temp","v","energy","enthalpy","entropy"],axis=1)
+        if Pressure in self.dfSupSat["Pressure"].values:
+            indexing=self.dfSupSat[self.dfSupSat["Pressure"].values==Pressure].index.values
+            result["Temp"].values[1]=self.dfSupSat["SaturatedTemperature"].values[indexing][0]
+        result=result.iloc[1:]
+        result=result.apply(pd.to_numeric)
+        return result
+    
+    def superheated_Pres_unknown(self,table1,Pressure1,table2,Pressure2,Pressure):
+        table1=self.superheatedTable_interpolate(table1,Pressure1)
+        table2=self.superheatedTable_interpolate(table2,Pressure2)
+
+        return table1+(table2-table1).multiply((Pressure-Pressure2)/(Pressure2-Pressure1))
+
 
 ##########################################################################################################################################
 
@@ -142,8 +162,13 @@ def superheatedtable(pressure):
     ]
     if pressure in pre:
         val=pre.index(pressure)
-        return mode[val]
+        return sup.superheatedTable_interpolate(mode[val],pressure)
     bk=bisect_left(pre,pressure)
-    return mode[bk]
+    return sup.superheated_Pres_unknown(mode[bk],pre[bk],mode[bk-1],pre[bk-1],pressure)
+
+print(superheatedtable(60))
+print(superheatedtable(100))
+
+print(superheatedtable(70))
     
 
