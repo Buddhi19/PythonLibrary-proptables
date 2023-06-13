@@ -267,4 +267,3 @@ def superheatedtable(pressure):
     return result
 
 
-print(superheatedtable(340))
