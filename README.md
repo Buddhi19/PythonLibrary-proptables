@@ -2,7 +2,6 @@
 [![pypi supported versions](https://img.shields.io/pypi/pyversions/proptables.svg)](https://pypi.python.org/pypi/proptables)
 # Python proptables
 #### proptables is a Python library designed to provide easy access to comprehensive property tables for R134a 
-##### (water-steam tables will be implemented soon). 
 
 # To Install
 ```bash
@@ -11,6 +10,7 @@ pip install proptables
 ## How to use
 ```python
 from proptables import R134a
+from proptables import water
 ```
 
 ## To find data in saturated liquid vapour region
