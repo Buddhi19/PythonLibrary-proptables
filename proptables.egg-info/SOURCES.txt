@@ -24,6 +24,7 @@ proptables/water/H2O_Compressed.csv
 proptables/water/H2O_PresSat.csv
 proptables/water/H2O_Super.csv
 proptables/water/H2O_TempSat.csv
+proptables/water/H2O_superSat.csv
 proptables/water/__init__.py
 proptables/water/calwatercompressed.py
 proptables/water/calwatersat.py
@@ -31,4 +32,5 @@ proptables/water/calwatersuperheat.py
 proptables/water/import_data_water.py
 proptables/water/main.py
 proptables/water/mainwater.py
+proptables/water/superheated.py
 proptables/water/test.py

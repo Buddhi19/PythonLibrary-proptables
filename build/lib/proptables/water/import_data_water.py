@@ -18,3 +18,7 @@ def get_flatland(loc):
 data_path_TempSat=get_flatland("H2O_TempSat.csv")
 
 data_path_PresSat=get_flatland("H2O_PresSat.csv")
+
+data_path_SuperHeat=get_flatland("H2O_Super.csv")
+
+data_path_SuperSat=get_flatland("H2O_superSat.csv")
