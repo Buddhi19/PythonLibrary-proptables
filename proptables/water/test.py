@@ -47,4 +47,12 @@ if check_5:
 check_6=True
 
 if check_6:
-     print(water(Pressure=400,Superheated=True))
+     print(water(Pressure=4000,Superheated=True))
+
+
+############################ check 
+
+check_7=True
+
+if check_7:
+     print(water(Pressure=4000,Entropy=6.6796,Superheated=True))

@@ -41,3 +41,10 @@ check_5=True
 
 if check_5:
         print(water(Pressure=1000,Entropy=5))
+
+############################# check for steam ######################################
+
+check_6=True
+
+if check_6:
+     print(water(Pressure=400,Superheated=True))
