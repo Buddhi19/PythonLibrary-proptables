@@ -66,69 +66,93 @@ class SuperHeated:
         return table
 
     ######################################################### Super Heated 4th Tables###################################
-    def superheated_Pres_500(self):
-        table=self.dfSuperHeated.iloc[54:69,0:5]
-        # print(table)
-        return table
-
-    def superheated_Pres_600(self):
-        table=self.dfSuperHeated.iloc[54:69,6:10]
-        table.insert(0,1,self.dfSuperHeated.iloc[54:69,0])
-        # print(table)
-        return table
-
-    def superheated_Pres_700(self):
-        table=self.dfSuperHeated.iloc[54:69,11:15]
-        table.insert(0,1,self.dfSuperHeated.iloc[54:69,0])
-        # print(table)
-        return table
-
-    ######################################################### Super Heated 5th Tables###################################
-    def superheated_Pres_800(self):
-        table=self.dfSuperHeated.iloc[72:87,0:5]
-        # print(table)
-        return table
-
-    def superheated_Pres_900(self):
-        table=self.dfSuperHeated.iloc[72:87,6:10]
-        table.insert(0,1,self.dfSuperHeated.iloc[72:87,0])
-        # print(table)
-        return table
-
     def superheated_Pres_1000(self):
-        table=self.dfSuperHeated.iloc[72:87,11:15]
-        table.insert(0,1,self.dfSuperHeated.iloc[72:87,0])
+        table=self.dfSuperHeated.iloc[59:72,0:5]
         # print(table)
         return table
 
-    ######################################################### Super Heated 6th Tables###################################
     def superheated_Pres_1200(self):
-        table=self.dfSuperHeated.iloc[90:106,0:5]
+        table=self.dfSuperHeated.iloc[59:72,6:10]
+        table.insert(0,1,self.dfSuperHeated.iloc[59:72,0])
         # print(table)
         return table
 
     def superheated_Pres_1400(self):
-        table=self.dfSuperHeated.iloc[72:87,6:10]
-        table.insert(0,1,self.dfSuperHeated.iloc[72:87,0])
+        table=self.dfSuperHeated.iloc[59:72,11:15]
+        table.insert(0,1,self.dfSuperHeated.iloc[59:72,0])
         # print(table)
         return table
 
+    ######################################################### Super Heated 5th Tables###################################
     def superheated_Pres_1600(self):
-        table=self.dfSuperHeated.iloc[72:87,11:15]
-        table.insert(0,1,self.dfSuperHeated.iloc[72:87,0])
+        table=self.dfSuperHeated.iloc[76:89,0:5]
         # print(table)
         return table
 
-    ######################################################### Super Heated 6th Tables###################################
     def superheated_Pres_1800(self):
-        table=self.dfSuperHeated.iloc[111:125,0:5]
+        table=self.dfSuperHeated.iloc[76:89,6:10]
+        table.insert(0,1,self.dfSuperHeated.iloc[76:89,0])
         # print(table)
         return table
 
     def superheated_Pres_2000(self):
-        table=self.dfSuperHeated.iloc[111:125,6:10]
-        table.insert(0,1,self.dfSuperHeated.iloc[111:125,0])
+        table=self.dfSuperHeated.iloc[76:89,11:15]
+        table.insert(0,1,self.dfSuperHeated.iloc[76:89,0])
         # print(table)
+        return table
+
+    ######################################################### Super Heated 6th Tables###################################
+    def superheated_Pres_2500(self):
+        table=self.dfSuperHeated.iloc[93:105,0:5]
+        # print(table)
+        return table
+
+    def superheated_Pres_3000(self):
+        table=self.dfSuperHeated.iloc[93:105,6:10]
+        table.insert(0,1,self.dfSuperHeated.iloc[93:105,0])
+        # print(table)
+        return table
+
+    def superheated_Pres_3500(self):
+        table=self.dfSuperHeated.iloc[93:105,11:15]
+        table.insert(0,1,self.dfSuperHeated.iloc[93:105,0])
+        # print(table)
+        return table
+
+    ######################################################### Super Heated 6th Tables###################################
+    def superheated_Pres_4000(self):
+        table=self.dfSuperHeated.iloc[109:121,0:5]
+        # print(table)
+        return table
+
+    def superheated_Pres_4500(self):
+        table=self.dfSuperHeated.iloc[109:121,6:10]
+        table.insert(0,1,self.dfSuperHeated.iloc[109:121,0])
+        # print(table)
+        return table
+    
+    def superheated_Pres_5000(self):
+        table=self.dfSuperHeated.iloc[109:121,11:15]
+        table.insert(0,1,self.dfSuperHeated.iloc[109:121,0])
+        print(table)
+        return table
+    
+        ######################################################### Super Heated 7th Tables###################################
+    def superheated_Pres_6000(self):
+        table=self.dfSuperHeated.iloc[125:136,0:5]
+        # print(table)
+        return table
+
+    def superheated_Pres_7000(self):
+        table=self.dfSuperHeated.iloc[125:136,6:10]
+        table.insert(0,1,self.dfSuperHeated.iloc[125:136,0])
+        # print(table)
+        return table
+    
+    def superheated_Pres_8000(self):
+        table=self.dfSuperHeated.iloc[125:136,11:15]
+        table.insert(0,1,self.dfSuperHeated.iloc[125:136,0])
+        print(table)
         return table
 ##########################################################################################################################################
     def superheatedTable_interpolate(self,result,Pressure):
@@ -156,9 +180,10 @@ def superheatedtable(pressure):
     mode=[
         sup.superheated_Pres_0010(),sup.superheated_Pres_0050(),sup.superheated_Pres_0100(),
         sup.superheated_Pres_0200(),sup.superheated_Pres_0300(),sup.superheated_Pres_0400(),sup.superheated_Pres_0500(),
-        sup.superheated_Pres_0600(),sup.superheated_Pres_0800(),sup.superheated_Pres_500(),sup.superheated_Pres_600(),sup.superheated_Pres_700(),
-        sup.superheated_Pres_800(),sup.superheated_Pres_900(),sup.superheated_Pres_1000(),sup.superheated_Pres_1200(),sup.superheated_Pres_1400(),
-        sup.superheated_Pres_1600(),sup.superheated_Pres_1800(),sup.superheated_Pres_2000()
+        sup.superheated_Pres_0600(),sup.superheated_Pres_0800(),sup.superheated_Pres_1000(),sup.superheated_Pres_1200(),sup.superheated_Pres_1400(),
+        sup.superheated_Pres_1400(),sup.superheated_Pres_1800(),sup.superheated_Pres_2000(),sup.superheated_Pres_2500(),sup.superheated_Pres_3000(),
+        sup.superheated_Pres_3500(),sup.superheated_Pres_4000(),sup.superheated_Pres_4500(),
+        sup.superheated_Pres_5000()
     ]
     if pressure in pre:
         val=pre.index(pressure)
@@ -176,6 +201,6 @@ def superheatedtable(pressure):
 
 # print(superheatedtable(61))
 sup=SuperHeated()
-sup.superheated_Pres_0500()
-sup.superheated_Pres_0600()
-sup.superheated_Pres_0800()
+sup.superheated_Pres_4000()
+sup.superheated_Pres_4500()
+sup.superheated_Pres_5000()
