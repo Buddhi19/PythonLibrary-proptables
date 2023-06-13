@@ -221,6 +221,7 @@ class SuperHeated:
             indexing=self.dfSupSat[self.dfSupSat["Pressure"].values==Pressure].index.values
             result["Temp"].values[1]=self.dfSupSat["SaturatedTemp"].values[indexing][0]
         result=result.iloc[1:]
+        result=result.reset_index(drop=True)
         result=result.apply(pd.to_numeric)
         return result
     
