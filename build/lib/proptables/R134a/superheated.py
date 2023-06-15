@@ -138,7 +138,7 @@ class SuperHeated:
             indexing=self.dfSupSat[self.dfSupSat["Pressure"].values==Pressure].index.values
             result["Temp"].values[1]=self.dfSupSat["SaturatedTemperature"].values[indexing][0]
         result=result.iloc[1:]
-        result=result.reset_index(drop=True)
+        # result=result.reset_index(drop=True)
         result=result.apply(pd.to_numeric)
         return result
     
@@ -165,14 +165,16 @@ def superheatedtable(pressure):
         val=pre.index(pressure)
         result=sup.superheatedTable_interpolate(mode[val],pressure)
         result=result.set_axis(["Temp","v","energy","enthalpy","entropy"],axis=1)
+        result=result.reset_index(drop=True)
         return result
     bk=bisect_left(pre,pressure)
     result=sup.superheated_Pres_unknown(mode[bk-1],pre[bk-1],mode[bk],pre[bk],pressure)
     result=result.set_axis(["Temp","v","energy","enthalpy","entropy"],axis=1)
+    result=result.reset_index(drop=True)
     return result
 
 
-# print(superheatedtable(60))
+print(superheatedtable(450))
 # print(superheatedtable(100))
 
 # print(superheatedtable(61))
