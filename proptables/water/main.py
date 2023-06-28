@@ -1,9 +1,10 @@
 from proptables.water.calwatersat import SatwaterCal
 from proptables.water.calwatersuperheat import steam
+import pandas as pd
 
 def water(Temperature=None,Pressure=None,
           Enthalpy=None,Entropy=None,
-          specificvolume=None,Superheated=None,Compressed=None):
+          specificvolume=None,Superheated=None,Compressed=None)->pd.DataFrame:
 
     if Temperature and Pressure:
         return steam.findsuperTemp(Pressure,Temperature)
@@ -37,5 +38,7 @@ def water(Temperature=None,Pressure=None,
     
     if Pressure:
         return(SatwaterCal.FindbyPressure(Pressure))
+    else:
+        raise Exception("Not implemented yet or Invalid Input.")
 
     

@@ -3,7 +3,7 @@ from proptables.R134a.calSuperHeatData import HeatedCal
 from proptables.R134a.calSatData import SatData
 
 
-def R134a(Temperature=None,Pressure=None,Enthalpy=None,Entropy=None,specificvolume=None,Superheated=None):
+def R134a(Temperature=None,Pressure=None,Enthalpy=None,Entropy=None,specificvolume=None,Superheated=None)->pd.DataFrame:
     
     if Temperature and Pressure:
         return HeatedCal.findsuperTemp(Pressure,Temperature)
@@ -37,4 +37,7 @@ def R134a(Temperature=None,Pressure=None,Enthalpy=None,Entropy=None,specificvolu
         
     if Pressure:
         return(SatData.FindbyPressure(Pressure))
+    else:
+        raise Exception("Not implemented yet or Invalid Input.")
+    
 
