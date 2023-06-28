@@ -14,6 +14,7 @@ class SaturatedData:
         if Temperature in self.dfTemperature["degC"].unique():
             indexing=self.dfTemperature[self.dfTemperature["degC"]==Temperature].index.values
             row=self.dfTemperature.iloc[indexing]
+            row=row.reset_index(drop=True)
             return row
         else:
             nearest=self.dfTemperature["degC"].sub(Temperature).abs().argsort()[:2]
@@ -37,6 +38,7 @@ class SaturatedData:
         if Pressure in self.dfPressure["kPa"].unique():
             indexing=self.dfPressure[self.dfPressure["kPa"]==Pressure].index.values
             row=self.dfPressure.iloc[indexing]
+            row=row.reset_index(drop=True)
             return row
         else:
             nearest=self.dfPressure["kPa"].sub(Pressure).abs().argsort()[:2]

@@ -12,6 +12,7 @@ class saturatedwater:
         if Temperature in self.Tempdata["degC"].unique():
             indexing=self.Tempdata[self.Tempdata["degC"]==Temperature].index.values
             row=self.Tempdata.iloc[indexing]
+            row=row.reset_index(drop=True)
             return row
         else:
             nearest=self.Tempdata["degC"].sub(Temperature).abs().argsort()[:2]
@@ -34,6 +35,7 @@ class saturatedwater:
         if Pressure in self.Presdata["MPa"].unique():
             indexing=self.Presdata[self.Presdata["MPa"]==Pressure].index.values
             row=self.Presdata.iloc[indexing]
+            row=row.reset_index(drop=True)
             return row
         else:
             nearest=self.Presdata["MPa"].sub(Pressure).abs().argsort()[:2]

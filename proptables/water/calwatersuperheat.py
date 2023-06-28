@@ -13,6 +13,7 @@ class HeatedCalculater:
         if Temperature in ans["Temp"].values:
             indexing=ans[ans["Temp"].values==Temperature].index.values
             row=ans.iloc[indexing]
+            row=row.reset_index(drop=True)
             return row
         else:
             nearest=ans["Temp"].sub(Temperature).abs().argsort()[:2]
@@ -35,6 +36,7 @@ class HeatedCalculater:
         if Enthalpy in ans["enthalpy"].values:
             indexing=ans[ans["enthalpy"].values==Enthalpy].index.values
             row=ans.iloc[indexing]
+            row=row.reset_index(drop=True)
             return row
         else:
             nearest=ans["enthalpy"].sub(Enthalpy).abs().argsort()[:2]
@@ -57,6 +59,7 @@ class HeatedCalculater:
         if Entropy in ans["entropy"].values:
             indexing=ans[ans["entropy"].values==Entropy].index.values
             row=ans.iloc[indexing]
+            row=row.reset_index(drop=True)
             return row
         else:
             nearest=ans["entropy"].sub(Entropy).abs().argsort()[:2]
@@ -79,6 +82,7 @@ class HeatedCalculater:
         if specificvolume in ans["v"].values:
             indexing=ans[ans["v"].values==specificvolume].index.values
             row=ans.iloc[indexing]
+            row=row.reset_index(drop=True)
             return row
         else:
             nearest=ans["v"].sub(specificvolume).abs().argsort()[:2]
