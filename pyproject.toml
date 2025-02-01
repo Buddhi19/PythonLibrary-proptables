@@ -1,6 +1,19 @@
 [build-system]
-requires = [
-    "setuptools>=54",
-    "wheel"
-]
+requires = ["setuptools>=54", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "proptables"
+version = "0.1.0"
+description = "For generating property table values for given input"
+readme = "README.md"
+requires-python = ">=3.7"
+license = { text = "MIT" }
+authors = [
+    { name = "Buddhi Wijenayake", email = "wijenayakebuddhi34802@gmail.com" }
+]
+dependencies = []
+
+[tool.setuptools]
+packages = ["proptables"]
+license-files = ["LICENSE"]
